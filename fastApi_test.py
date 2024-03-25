@@ -16,7 +16,7 @@ app.add_middleware(
 )
 
 # Replace with your actual database connection details
-DATABASE_URL = "postgresql://nitheshkumar:l@pg-co06icmct0pc73dp7a10-a.oregon-postgres.render.com/first_db_s5r7"
+DATABASE_URL = "postgresql+asyncpg://nitheshkumar:l@pg-co06icmct0pc73dp7a10-a.oregon-postgres.render.com/first_db_s5r7"
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
