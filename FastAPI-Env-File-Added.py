@@ -2,6 +2,7 @@ from fastapi import FastAPI
 import psycopg2
 from fastapi.middleware.cors import CORSMiddleware
 import os
+from dotenv import load_dotenv
 
 app = FastAPI()
 
@@ -12,7 +13,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+load_dotenv()
 def get_db_connection():
     try:
         conn = psycopg2.connect(
