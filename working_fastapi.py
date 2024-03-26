@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 import psycopg2
 from fastapi.middleware.cors import CORSMiddleware
+import os
+from dotenv import load_dotenv
 
 app = FastAPI()
 
@@ -11,15 +13,15 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+load_dotenv()
 def get_db_connection():
     try:
         conn = psycopg2.connect(
-            host="dpg-co06icmct0pc73dp7a10-a.oregon-postgres.render.com",
-            port=5432,
-            database="first_db_s5r7",
-            user="nitheshkumar",
-            password="ljQpJBpiFl3oCjjMk8tgDpAGenzu3ZBV"
+            host=os.getenv("host"),
+            port=os.getenv("port"),
+            database=os.getenv("database"),
+            user=os.getenv("user"),
+            password=os.getenv("password")
         )
         return conn
     except Exception as e:
