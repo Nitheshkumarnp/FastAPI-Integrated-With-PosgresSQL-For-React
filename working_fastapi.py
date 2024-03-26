@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 import psycopg2
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
