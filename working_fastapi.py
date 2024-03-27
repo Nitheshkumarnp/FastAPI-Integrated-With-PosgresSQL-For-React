@@ -36,7 +36,7 @@ async def get_all_details():
 
     try:
         with conn.cursor() as cursor:
-            cursor.execute("SELECT * FROM users")
+            cursor.execute("SELECT * FROM images")
             rows = cursor.fetchall()
             return rows
     except Exception as e:
